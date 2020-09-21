@@ -1,0 +1,43 @@
+# This workflow creates docker images that are then used for:
+#
+# - AIDASoft packages CI
+# 
+# All created images are then uploaded to GitHub Container registry and docker hub
+
+name: Create images
+
+on:
+  push:
+  schedule:
+    # every Sunday
+    - cron:  '0 0 * * 0'
+
+jobs:
+  # Image for running centos7
+  build:
+    strategy:
+      matrix:
+        image: ["centos7", "slc6", "ubuntu18"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          echo $PWD
+          ls -l
+          docker build -t ${{ matrix.image }} ${{ matrix.image }}/
+      - name: tag
+        run: |
+          docker tag ${{ matrix.image }} ghcr.io/aidasoft/${{ matrix.image }}:latest
+      - name: show
+        run: docker images
+      - name: login and push
+        env:
+          deploy_secret: ${{ secrets.CR_PAT }}
+        run: |
+          if [ ! -z ${deploy_secret} ]; then
+            echo ${{ secrets.CR_PAT }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
+            docker push ghcr.io/aidasoft/${{ matrix.image }}:latest;
+          else
+            echo "Skipping deploy no secrets present";
+          fi
