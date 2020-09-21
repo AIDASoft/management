@@ -16,7 +16,7 @@ RUN yum install -y /tmp/heposlibs.rpm \
     && rm -fv /tmp/heposlibs.rpm
 
 # Install distro module (and pip3) for python3
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+RUN curl https://raw.githubusercontent.com/pypa/get-pip/master/3.4/get-pip.py -o get-pip.py \
     && python3 get-pip.py \
     && pip3 install distro \
     && rm -fv get-pip.py
