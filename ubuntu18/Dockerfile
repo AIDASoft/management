@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 LABEL maintainer="marko.petric@cern.ch"
 
 # Suppress debconf messages for user interaction during installations
-COPY keyboard /etc/default/keyboard
+COPY misc/keyboard /etc/default/keyboard
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install krb5.conf (before installing krb5-user)
@@ -25,6 +25,23 @@ RUN apt-get install -y /tmp/heposlibs.deb \
 
 # Set the correct timezone
 RUN ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
+
+# Add some subfolders in the $HOME folder
+RUN mkdir /root/.ssh \
+    && mkdir /root/.ccache
+
+# Setup SSH configuration
+COPY misc/config /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
+
+# Setup ccache
+RUN mkdir -p /ccache
+COPY misc/ccache.conf /root/.ccache/ccache.conf
+RUN cp $( which ccache ) /usr/local/bin \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/gcc \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/g++ \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/cc \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/c++
 
 # Run bash as default command
 CMD ["/bin/bash"]

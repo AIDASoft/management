@@ -8,6 +8,7 @@ bzip2
 ccache
 cmake
 curl
+emacs
 flex
 g++
 g++-8
@@ -67,6 +68,7 @@ rsync
 subversion
 tcl
 tcl-dev
+time
 tk
 tk-dev
 unzip
