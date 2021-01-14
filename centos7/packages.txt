@@ -7,6 +7,9 @@ bzip2
 bzip2-devel
 ccache
 cmake
+cyrus-sasl
+cyrus-sasl-devel
+cyrus-sasl-plain
 emacs
 expat
 expat-devel
@@ -22,6 +25,8 @@ java
 libcurl-devel
 libffi
 libffi-devel
+libgsasl
+libgsasl-devel
 libICE-devel
 libtool
 libuuid-devel
@@ -29,6 +34,7 @@ libXmu-devel
 libXpm-devel
 libxslt-devel
 lsof
+lzo-devel
 mesa-libGL-devel
 mesa-libGLU-devel
 motif-devel
@@ -57,3 +63,4 @@ xerces-c
 xerces-c-devel
 xorg-x11-xauth
 xz-devel
+yasm

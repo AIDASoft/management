@@ -1,0 +1,5 @@
+Host epsft-jenkins.cern.ch
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    User sftnight
+    LogLevel QUIET

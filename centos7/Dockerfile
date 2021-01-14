@@ -32,5 +32,22 @@ RUN yum install -y /tmp/heposlibs.rpm \
 # Set the correct timezone
 RUN ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
+# Add some subfolders in the $HOME folder
+RUN mkdir /root/.ssh \
+    && mkdir /root/.ccache
+
+# Setup SSH configuration
+COPY misc/config /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
+
+# Setup ccache
+RUN mkdir -p /ccache
+COPY misc/ccache.conf /root/.ccache/ccache.conf
+RUN cp $( which ccache ) /usr/local/bin \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/gcc \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/g++ \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/cc \
+    && ln -s /usr/local/bin/ccache /usr/local/bin/c++
+
 # Run bash default command
 CMD ["/bin/bash"]
