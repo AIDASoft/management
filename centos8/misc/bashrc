@@ -1,0 +1,18 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+PS1="\[\033[0;33m\][\h] [\W] \[\033[1;33m\][\D{%F %T}]\n\[\033[01;36m\]\u \\$ \[\033[0m\]"
+
+# User specific aliases and functions
+alias ls='ls --color=auto'
+alias l='ls -1'
+alias ll='ls -hAltr'
+alias lll='ls --color -hal --group-directories-first'
+
