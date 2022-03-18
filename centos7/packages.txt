@@ -37,6 +37,7 @@ lsof
 lzo-devel
 mesa-libGL-devel
 mesa-libGLU-devel
+freeglut-devel
 motif-devel
 MySQL-python
 nano
