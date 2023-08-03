@@ -8,6 +8,7 @@ name: Create images
 
 on:
   push:
+  workflow_dispatch:
   schedule:
     # every Sunday
     - cron:  '0 0 * * 0'
