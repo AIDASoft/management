@@ -1,4 +1,4 @@
-FROM cern/c8-base
+FROM cern/cs8-base
 LABEL maintainer="marko.petric@cern.ch"
 ENV container docker
 
