@@ -34,10 +34,10 @@ jobs:
         run: docker images
       - name: login and push
         env:
-          deploy_secret: ${{ secrets.CR_PAT }}
+          deploy_secret: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ ! -z ${deploy_secret} ]; then
-            echo ${{ secrets.CR_PAT }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
             docker push ghcr.io/aidasoft/${{ matrix.image }}:latest;
           else
             echo "Skipping deploy no secrets present";
@@ -69,10 +69,10 @@ jobs:
         run: docker images
       - name: login and push
         env:
-          deploy_secret: ${{ secrets.CR_PAT }}
+          deploy_secret: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ ! -z ${deploy_secret} ]; then
-            echo ${{ secrets.CR_PAT }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
             docker push ghcr.io/aidasoft/coverity:latest;
           else
             echo "Skipping deploy no secrets present";
