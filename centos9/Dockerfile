@@ -27,12 +27,8 @@ RUN dnf update -y \
 COPY krb5.conf/rhel /etc/krb5.conf
 
 # Add some subfolders in the $HOME folder
-RUN mkdir /root/.ssh \
-    && mkdir /root/.ccache
-
-# Setup SSH configuration for Jenkins
-COPY misc/config /root/.ssh/config
-RUN chmod 600 /root/.ssh/config
+RUN mkdir -p /root/.ssh \
+    && mkdir -p /root/.ccache
 
 # Run bash as default command
 CMD ["/bin/bash"]
