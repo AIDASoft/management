@@ -67,7 +67,7 @@ jobs:
           docker build -t coverity coverity/
       - name: tag
         run: |
-          docker tag coverity ghcr.io/aidasoft/coverity:latest
+          docker tag coverity ghcr.io/aidasoft/coverity:el9
       - name: show
         run: docker images
       - name: login and push
@@ -76,7 +76,7 @@ jobs:
         run: |
           if [ ! -z ${deploy_secret} ]; then
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin;
-            docker push ghcr.io/aidasoft/coverity:latest;
+            docker push ghcr.io/aidasoft/coverity:el9;
           else
             echo "Skipping deploy no secrets present";
           fi

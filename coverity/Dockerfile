@@ -1,5 +1,5 @@
-FROM ghcr.io/aidasoft/centos7:latest
-LABEL maintainer="marko.petric@cern.ch"
+FROM ghcr.io/aidasoft/el9:latest
+LABEL maintainer="andresailer"
 ENV container docker
 
 # Install coverity files
