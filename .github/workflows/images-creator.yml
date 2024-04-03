@@ -21,7 +21,7 @@ jobs:
   build:
     strategy:
       matrix:
-        image: ["centos7", "centos8", "el9"]
+        image: ["centos7", "centos8", "el9", "ubuntu2204"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
