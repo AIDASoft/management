@@ -25,12 +25,12 @@ RUN apt-get update \
     && rm -fv /tmp/packages \
     && rm -rfv /var/lib/apt/lists/*
 
-# Xrootd client from CERN debian repository
-RUN echo "deb http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/ focal release" > /etc/apt/sources.list.d/xrootd.list
-RUN curl -sL http://storage-ci.web.cern.ch/storage-ci/storageci.key -o /tmp/storageci.key \
-    && APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add /tmp/storageci.key \
-    && rm -fr /tmp/storageci.key
-RUN apt-get update && apt-get install -y xrootd-client
+# # Xrootd client from CERN debian repository
+# RUN echo "deb http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/ focal release" > /etc/apt/sources.list.d/xrootd.list
+# RUN curl -sL http://storage-ci.web.cern.ch/storage-ci/storageci.key -o /tmp/storageci.key \
+#     && APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add /tmp/storageci.key \
+#     && rm -fr /tmp/storageci.key
+# RUN apt-get update && apt-get install -y xrootd-client
 
 # Set the correct timezone
 RUN ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime

@@ -25,8 +25,10 @@ libxcb-xtest0-dev
 libxcb-xinerama0-dev 
 libxcb-shape0-dev 
 libxcb-xkb-dev
-libx11-xcb-dev 
+libx11-xcb-dev
+libxcb-xinput-dev
 libglu1-mesa-dev 
+libglvnd-dev
 libxrender-dev 
 libxi-dev 
 libxkbcommon-dev 
@@ -40,6 +42,7 @@ byacc
 bzip2
 ccache
 cmake
+elfutils
 emacs
 flex
 g++
@@ -55,6 +58,7 @@ libbz2-dev
 libcairo2-dev
 libcap-dev
 libcurl4-openssl-dev
+libdwarf-dev
 libffi-dev
 libffi7
 libgdbm-dev
@@ -64,6 +68,7 @@ libglib2.0-dev-bin
 libglu1-mesa
 libglu1-mesa-dev
 libgmp-dev
+libkrb5-dev
 libicu-dev
 libjpeg-turbo8
 libjpeg-turbo8-dev
@@ -89,17 +94,18 @@ libxmu-dev
 libxpm-dev
 locales
 lsb-release
+lz4
+liblz4-dev
 mesa-common-dev
 nano
-python-is-python2
-python-cairo-dev
+openssl
+python-is-python3
 python3
 python3-cairo-dev
 python3-distro
 python3-distutils
 python3-lib2to3
 python3-pip
-qt5-default
 rsync
 subversion
 tcl
@@ -111,3 +117,4 @@ unzip
 uuid-dev
 zip
 zlib1g-dev
+xrootd-client
