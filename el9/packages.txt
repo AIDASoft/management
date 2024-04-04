@@ -72,7 +72,7 @@ expat-devel
 ghostscript
 krb5-devel
 bc
-
+libstdc++-devel
 
 bc
 xrootd-client
