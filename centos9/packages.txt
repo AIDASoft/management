@@ -3,6 +3,7 @@ automake
 bind-utils
 bzip2-devel
 bzip2
+ccache
 cmake
 cyrus-sasl-devel
 elfutils-devel

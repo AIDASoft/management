@@ -41,6 +41,7 @@ bison
 byacc
 bzip2
 cmake
+ccache
 elfutils
 emacs
 flex
