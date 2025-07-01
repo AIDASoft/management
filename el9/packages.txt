@@ -8,6 +8,7 @@ cmake
 cyrus-sasl-devel
 elfutils-devel
 file
+freeglut
 gdbm-devel
 git
 glibc-devel
