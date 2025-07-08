@@ -41,6 +41,7 @@ python3
 readline-devel
 rpm-build
 rsync
+strace
 svn
 tcl-devel
 tk-devel
