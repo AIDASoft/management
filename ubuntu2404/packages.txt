@@ -107,6 +107,7 @@ python3-distro
 python3-lib2to3
 python3-pip
 rsync
+strace
 subversion
 tcl
 tcl-dev
